@@ -34,7 +34,7 @@ zip ファイルごと mods フォルダへ投入
       ※ロックオン候補が認識されていない場合、ロックオンできません。
 
 ■ライセンス
-  ・ソースコードのライセンスは、MIT License と GPLv2 の Dual License とします
+  ・ソースコードのライセンスは、MIT License と GPLv3 の Dual License とします
 
 ■免責
   ・ご利用は自己責任でお願いします
@@ -42,8 +42,20 @@ zip ファイルごと mods フォルダへ投入
 ■謝辞
   ・Scouter のソースを参考にさせて頂きました。公開されている作者様に感謝です。
 
+■公開先
+  ・Minecraft 日本非公式ユーザーフォーラム
+    http://forum.minecraftuser.jp/viewtopic.php?f=21&t=278&p=58047#p58028
+  ・github (ソースコード)
+    https://github.com/bbc-mc/LockOnMod
+
 ■更新
 
   20121012-2
     - ロックオンした Mob が死んだ時に、カーソルが Mob が死んだ場所に残る問題を修正
     - range で指定した距離以上はなれた場合に、ロックオンを解除するように修正
+
+----------
+Copyright &copy; 2012 bbc_mc (bbc-mc on github)  
+Dual licensed under the [MIT license][MIT] and [GPL license][GPL].  
+[MIT]: http://www.opensource.org/licenses/mit-license.php  
+[GPL]: http://www.gnu.org/licenses/gpl.html
