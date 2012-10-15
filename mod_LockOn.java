@@ -3,7 +3,7 @@ package net.minecraft.src;
 import java.util.Map;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.src.bbc_mc.LockOn.LockOn;
+import bbc_mc.LockOn.LockOn;
 
 /**
  * MOD: LockOn

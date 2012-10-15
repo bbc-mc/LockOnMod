@@ -1,4 +1,4 @@
-package net.minecraft.src.bbc_mc.LockOn;
+package bbc_mc.LockOn;
 
 import java.util.List;
 import java.util.Map;
@@ -10,14 +10,14 @@ import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.KeyBinding;
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.MovingObjectPosition;
-import net.minecraft.src.Vec3D;
+import net.minecraft.src.Vec3;
 import net.minecraft.src.World;
 import net.minecraft.src.mod_LockOn;
 
 /**
  * 
  * @author bbc_mc
- * @date 2012/10/12
+ * @date 2012/10/14
  */
 public class LockOn {
     
@@ -44,7 +44,7 @@ public class LockOn {
     }
     
     // Difinition of MOD VERSION
-    private final String modVersion = "1.2.5-20121012";
+    private final String modVersion = "1.3.2-20121014";
     private World lastWorld = null;
     
     public Entity targetEntity;
@@ -97,6 +97,9 @@ public class LockOn {
         
         // 対象Entity選択の更新
         if (this.targetEntity == null) {
+            if (this.candidateEntity != null && this.candidateEntity.getDistanceToEntity( pl ) > mod.range) {
+                this.candidateEntity = null;
+            }
             if (this.updateCandidate( minecraft )) {
                 this.debugPrint( " update target : " + this.targetEntity );
             }
@@ -120,7 +123,7 @@ public class LockOn {
             
             double dx = pl.posX - this.targetEntity.posX;
             double dz = pl.posZ - this.targetEntity.posZ;
-            Vec3D vec = Vec3D.createVector( pl.posX - this.targetEntity.posX, pl.posY - this.targetEntity.posY, pl.posZ - this.targetEntity.posZ ).normalize();
+            Vec3 vec = Vec3.createVectorHelper( pl.posX - this.targetEntity.posX, pl.posY - this.targetEntity.posY, pl.posZ - this.targetEntity.posZ ).normalize();
             double rotationYaw;
             rotationYaw = (float) ((Math.atan2( dz, dx ) * 180D) / Math.PI) - 270F;
             rotationYaw = rotationYaw % 360F;
@@ -188,18 +191,18 @@ public class LockOn {
         this.offCount = 0;
         
         // プレイヤーの視線をゲット
-        Vec3D lookAt = pl.getLookVec().normalize();
-        lookAt = Vec3D.createVector( (double) mod.range * lookAt.xCoord, (double) mod.range * lookAt.yCoord, (double) mod.range * lookAt.zCoord );
+        Vec3 lookAt = pl.getLookVec().normalize();
+        lookAt = Vec3.createVectorHelper( (double) mod.range * lookAt.xCoord, (double) mod.range * lookAt.yCoord, (double) mod.range * lookAt.zCoord );
         
         // 視線上で範囲内の一番近い Entity をゲット
-        Vec3D vec3d = Vec3D.createVector( pl.posX, pl.posY, pl.posZ );
-        Vec3D vec3d1 = vec3d.addVector( lookAt.xCoord, lookAt.yCoord, lookAt.zCoord );
+        Vec3 vec3d = Vec3.createVectorHelper( pl.posX, pl.posY, pl.posZ );
+        Vec3 vec3d1 = vec3d.addVector( lookAt.xCoord, lookAt.yCoord, lookAt.zCoord );
         MovingObjectPosition movingobjectposition = pl.worldObj.rayTraceBlocks_do_do( vec3d, vec3d1, false, true );
-        vec3d = Vec3D.createVector( pl.posX, pl.posY, pl.posZ );
+        vec3d = Vec3.createVectorHelper( pl.posX, pl.posY, pl.posZ );
         vec3d1 = vec3d.addVector( lookAt.xCoord, lookAt.yCoord, lookAt.zCoord );
         
         if (movingobjectposition != null) {
-            vec3d1 = Vec3D.createVector( movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord );
+            vec3d1 = Vec3.createVectorHelper( movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord );
         }
         
         Entity entity = null;

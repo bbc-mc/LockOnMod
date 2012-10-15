@@ -1,4 +1,4 @@
-package net.minecraft.src.bbc_mc.LockOn;
+package bbc_mc.LockOn;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.Entity;

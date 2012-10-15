@@ -1,4 +1,4 @@
-package net.minecraft.src.bbc_mc.LockOn;
+package bbc_mc.LockOn;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.Entity;
@@ -29,9 +29,9 @@ public class RenderLockOn extends Render {
     private void drawTargetSight(Minecraft minecraft, Entity entity) {
         float f1 = 1.6F;
         float f2 = 0.01666667F * f1;
-        double d = - (renderManager.field_1222_l - entity.posX);
-        double d1 = - (renderManager.field_1221_m - entity.posY);
-        double d2 = - (renderManager.field_1220_n - entity.posZ);
+        double d = - (renderManager.viewerPosX - entity.posX);
+        double d1 = - (renderManager.viewerPosY - entity.posY);
+        double d2 = - (renderManager.viewerPosZ - entity.posZ);
         double size;
         float dis = entity.getDistanceToEntity( renderManager.livingPlayer ) - 1.0F;
         
