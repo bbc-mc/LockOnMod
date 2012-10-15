@@ -8,7 +8,11 @@ Mob に視点を合わせたままにするモードを追加
 
 ■環境
 
-MC 1.2.5 + ModLoader
+・MC 1.2.5 + ModLoader
+・MC 1.3.2 + ModLoader
+  MC 1.3.2 + FML (※ FML の ModLoader 互換機能利用)
+
+  MC 1.2.5用と MC 1.3.2用は、公開しているZIPファイルが異なります
 
 ■導入
 
@@ -53,6 +57,9 @@ zip ファイルごと mods フォルダへ投入
   20121012-2
     - ロックオンした Mob が死んだ時に、カーソルが Mob が死んだ場所に残る問題を修正
     - range で指定した距離以上はなれた場合に、ロックオンを解除するように修正
+  20121014
+    - Minecraft 1.3.2 + ModLoader に対応
+    - range で指定した距離以上はなれた場合に、ロックオン候補カーソルを解除するように修正
 
 ----------
 Copyright &copy; 2012 bbc_mc (bbc-mc on github)  
